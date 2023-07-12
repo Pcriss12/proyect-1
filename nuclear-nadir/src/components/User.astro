@@ -1,29 +1,29 @@
 ---
-function getRandomNumber(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min) + min);
-}
 
-const randomNumber = getRandomNumber(1, 20);
-
-const response = await fetch('https://pokeapi.co/api/v2/pokemon');
+const response = await fetch('https://pokeapi.glitch.me/v1/pokemon/1');
 const data = await response.json();
-const i = randomNumber;
-const randomUser = data.results[i];
+const pokeName = data;
+//const pokeInfo = JSON.stringify(pokeName, null, 3);
 
-const responseUrl= await fetch(randomUser.url);
-const dataUrl = await responseUrl.json();
-const Ability1 = dataUrl.abilities[0];
-const Ability2 = dataUrl.abilities[1];
+
+
+---
+
+
+
+
 ---
 
 <!-- Los datos obtenidos en la compilación pueden ser usados en el HTML -->
 <h1>Pokemon</h1>
-<h2>{randomUser.name}   </h2>
+
 <ul>
-    <li>
-{Ability1.ability.name}
-    </li>
-    <li>
-{Ability2.ability.name}
-    </li>
+    {pokeName.map((item, index) => (
+      <li key={index}>{item.name}</li>
+      <li key={index}>{item.types}</li>
+      <li key={index}>
+              <img src={item.sprite} height="30px" width="30px"/>
+            </li>
+    ))}
+    
 </ul>
