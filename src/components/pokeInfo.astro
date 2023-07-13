@@ -13,20 +13,20 @@ const pokeName = data;
 
 <!-- Los datos obtenidos en la compilación pueden ser usados en el HTML -->
 
-<div class="col-span-1">
+<div class="col-span-1 maginX-5 ">
     {pokeName.map((item:any) => 
         <a href=""
-     class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden"
+     class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden borderAll-3"
      data-test="article-card">
     
            <img src={item.sprite} height="100px" width="100px" referrerpolicy="no-referrer" />
      
      
-     <div class="py-6 px-8">
+     <div class="py-6 px-6 dark-background">
        <h2 class="font-bold text-2xl leading-tight">
            {item.name}
        </h2>
-       <p class="text-xs text-gray-600 mt-4 flex items-center">
+       <p class="text-md mt-4 flex items-center">
            {item.description}
        </p>
      </div>
@@ -38,6 +38,19 @@ const pokeName = data;
         img {
           width: 100%;
           object-fit: cover;
-          object-position: top;
+          object-position: center;
+          padding: 4px;
+        }
+        .dark-background{
+            background-color: black;
+            color: white;
+            border-color: white;
+        }
+        .maginX-5{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .borderAll-3{
+            border: 3px solid;
         }
       </style>
