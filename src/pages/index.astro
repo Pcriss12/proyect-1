@@ -5,15 +5,12 @@ import HomeHeader from '../components/HomeHeader.astro';
 import Footer from '../components/Footer/Footer.astro';
 import PokeInfo from '../components/pokeInfo.astro';
 
-interface MarkdownFrontmatter {
-  date: number;
-}
-
 const title = 'Pokemons';
 const description = 'Chose your Pokemon';
 const seoDescription = 'Time to be a Pokemon trainer';
 
-const allPosts = await Astro.glob<MarkdownFrontmatter>('./posts/*.md');
+
+
 ---
 
 <html lang="en">
@@ -37,8 +34,8 @@ const allPosts = await Astro.glob<MarkdownFrontmatter>('./posts/*.md');
       </section>
       <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <PokeInfo id={1} />
-        <PokeInfo id={4}/>
-        <PokeInfo id={7}/>
+        <PokeInfo id={4} />
+        <PokeInfo id={7} />
       </section>
     </article>
   </main>

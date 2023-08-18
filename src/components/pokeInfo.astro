@@ -1,13 +1,15 @@
 ---
 
 export interface Props {
-  id: number;
+  id: any;
 }
 type Pokemon = {
   name: string;
   description: string;
   sprite: string;
+  number: string;
 };
+
 const { id } = Astro.props; 
 const response = await fetch('https://pokeapi.glitch.me/v1/pokemon/'+ id);
 const data = await response.json();
@@ -19,7 +21,7 @@ const pokeName = data;
 
 <div class="col-span-1 marginX-5 marginBottom">
     {pokeName.map((item:Pokemon) => 
-        <a href=""
+        <a href={`/blog/${item.number}`}
      class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden borderAll-3 "
      data-test="article-card">
     
